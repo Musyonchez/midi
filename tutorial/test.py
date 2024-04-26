@@ -1,3 +1,7 @@
+# import mido
+# print(mido.get_output_names())
+
+
 import rtmidi
 
 # Create a MIDI input and output instance
@@ -5,8 +9,7 @@ midi_in = rtmidi.MidiIn()
 midi_out = rtmidi.MidiOut()
 
 # Open a virtual MIDI output port
-midi_out.open_virtual_port("My Virtual Output")
-midi_in.open_virtual_port("My Virtual Input")
+# midi_out.open_virtual_port("My Virtual Output")
 
 # List available MIDI input ports
 print("Available MIDI input ports:")
