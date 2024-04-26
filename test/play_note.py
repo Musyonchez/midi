@@ -1,3 +1,4 @@
+import itertools
 import tkinter as tk
 import mido
 from mido import Message
@@ -21,13 +22,12 @@ root = tk.Tk()
 root.title("Piano Tutorial")
 
 # Create a grid of buttons for the piano keys
-for row in range(3):
-    for col in range(8):
-        note = row * 8 + col + 21  # Example: Start from C3
-        button = tk.Button(
-            root, text=f"Key {note}", command=lambda note=note: play_note(note)
-        )
-        button.grid(row=row, column=col)
+for row, col in itertools.product(range(3), range(8)):
+    note = row * 8 + col + 21  # Example: Start from C3
+    button = tk.Button(
+        root, text=f"Key {note}", command=lambda note=note: play_note(note)
+    )
+    button.grid(row=row, column=col)
 
 # Start the main loop
 root.mainloop()
